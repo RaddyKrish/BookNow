@@ -74,7 +74,16 @@ public class ReservationService {
     public ResponseEntity<ResponseDTO> reserveTable(Reservation reserveTable, HttpServletResponse response)
     {
         try {
-            if (checkIfSafeToBook(reserveTable)) {
+            List<RestaurantTable> table = new ArrayList<>();
+            tableRepo.findAll().forEach(table ::add);
+            Boolean isValidTable = false;
+
+            for(RestaurantTable t: table){
+                if(t.getTableName().equals(reserveTable.getTableName())){
+                    isValidTable = true;
+                }
+            }
+            if (checkIfSafeToBook(reserveTable) && isValidTable)  {
                 Reservation res = reserveRepo.save(reserveTable);
                 resDTO.setId(res.getId().toString());
                 resDTO.setStatus("BOOKED");
