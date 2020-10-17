@@ -8,9 +8,11 @@ For convenience I am adding the jar file that could be used to run the applicati
 
 ## Run the applicaton
 1. Assumimg you have maven installed run below to generate jar file from the project repository.
+
   mvn clean install
   
 2.To run the application run below command.
+
 java -jar BookNow-1.0-SNAPSHOT.jar
 
 
