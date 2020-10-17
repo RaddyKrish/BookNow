@@ -1,6 +1,6 @@
 ## General
     
-This is a Springboot app that does not have a GUI and uses in-memory h2 database,and exposes the end points listed in the test scetion.
+This is a Springboot app that does not have a GUI and uses in-memory h2 database,and exposes the end points listed in the test section.
 
 You can access the DB through URL http://localhost:8080/h2-console/
 
