@@ -1,0 +1,10 @@
+com\krish\booking\reservation\dto\ResponseDTO.class
+com\krish\booking\reservation\service\ReservationRepository.class
+com\krish\booking\reservation\dto\AvailabilityDTO.class
+com\krish\booking\reservation\model\RestaurantTable.class
+com\krish\booking\BookNowApp.class
+com\krish\booking\reservation\service\TableRepository.class
+com\krish\booking\reservation\service\ReservationService.class
+com\krish\booking\reservation\model\Reservation.class
+com\krish\booking\reservation\service\ReservationRepositoryImpl.class
+com\krish\booking\reservation\service\ReservationController.class
