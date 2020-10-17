@@ -4,8 +4,13 @@ This is a Springboot app that does not have a GUI and uses in-memory h2 database
 
 You can access the DB through URL http://localhost:8080/h2-console/
 
-## Run the applicaton
+For conveniance i am adding the jar file that could be run to the repo as well. BookNow-1.0-SNAPSHOT.jar
 
+## Run the applicaton
+1. Assumimg you have maven installed run below to generate jar file from the project repository.
+  mvn clean install
+2.To run the application run below command.
+java -jar BookNow-1.0-SNAPSHOT.jar
 
 
 ## Tests performed.
