@@ -38,7 +38,7 @@ java -jar BookNow-1.0-SNAPSHOT.jar
 
 
 
-##future proposal
+## Future proposal
 1. Add a restauarant table to support flexible store hours and count of tables.
 2. Provide ability to add more restauarants.
 3. Add unit tests for test coverage.
