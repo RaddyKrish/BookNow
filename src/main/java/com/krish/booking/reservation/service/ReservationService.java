@@ -90,7 +90,7 @@ public class ReservationService {
             } else {
                 resDTO.setId("0");
                 resDTO.setStatus("UNAVAILABLE");
-                resEntity = new ResponseEntity(resDTO, HttpStatus.UNPROCESSABLE_ENTITY);
+                resEntity = new ResponseEntity(resDTO, HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
             }
         }catch (OptimisticLockingFailureException ex){
             resEntity = new ResponseEntity(HttpStatus.LOCKED);
@@ -158,7 +158,9 @@ public class ReservationService {
     public ResponseEntity<ResponseDTO> updateReservation(Reservation updatedTable,String id,
                                                          HttpServletResponse response) {
         try {
-            if (checkIfSafeToBook(updatedTable)) {
+             Reservation reserved = getReservation(id);
+
+            if (checkIfSafeToBook(updatedTable) && null !=reserved) {
                 resRepoImpl.updateReservationByID(updatedTable, Long.parseLong(id));
                 resDTO.setId(id);
                 resDTO.setStatus("BOOKED");
@@ -166,7 +168,7 @@ public class ReservationService {
             } else {
                 resDTO.setId("0");
                 resDTO.setStatus("UNAVAILABLE");
-                resEntity = new ResponseEntity(resDTO, HttpStatus.UNPROCESSABLE_ENTITY);
+                resEntity = new ResponseEntity(resDTO, HttpStatus.NOT_FOUND);
             }
         } catch(Exception e) {
             resDTO.setId("0");
