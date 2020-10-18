@@ -25,8 +25,6 @@ public class ReservationService {
     @Autowired
     private ReservationRepositoryImpl resRepoImpl;
     ResponseEntity resEntity;
-    @Autowired
-    private AvailabilityDTO availabilityDTO;
 
     public List<AvailabilityDTO> getAvailableTable (String dt){
           List<RestaurantTable> table = new ArrayList<>();
@@ -39,9 +37,10 @@ public class ReservationService {
         availableTime.add("3PM-5PM");
         availableTime.add("5PM-7PM");
         List<Reservation> reserved = getReservedTable(dt);
-
+        AvailabilityDTO availabilityDTO;
             for (RestaurantTable counter :table) {
                 for(String l: availableTime){
+                    availabilityDTO = new AvailabilityDTO();
                     availabilityDTO.setTableName(counter.getTableName());
                     availabilityDTO.setAvailableDate(dt);
                     availabilityDTO.setAvailableTime(l);
